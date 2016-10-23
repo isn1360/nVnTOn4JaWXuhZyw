@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  */
 public class Shape {
 
-	private SideWiseType sideWiseType = SideWiseType.SCALENE;	// assume the most general
+	private SideWiseType sideWiseType;	// set by analyzeShape()
 	private List<Double> sides;
 	
 	public Shape(final List<Double> sides) throws ShapeException {
@@ -86,8 +86,8 @@ public class Shape {
 			return SideWiseType.EQUILATERAL;
 		} 
 		
-		// not equilateral, any other type cannot be determined at the moment -> scalene 
-		return SideWiseType.SCALENE;
+		// not equilateral, any other type cannot be determined at the moment 
+		return SideWiseType.NONE;
 	}
 	
 

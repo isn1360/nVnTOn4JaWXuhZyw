@@ -31,17 +31,20 @@ public class Triangle extends Shape {
 		// covers isoscalene and euqilateral
 		SideWiseType shapeType = super.determineSideWiseType(sides);	// first see what superclass found out
 		
-		if (!SideWiseType.EQUILATERAL.equals(shapeType)) {
-			// not equilateral, may still be isosceles
-			Set<Double> sidesByLength = sides.stream().collect(Collectors.toSet());
-			if (sidesByLength.size() == 2) {
-				// two sides of the same length, one of another length -> isosceles
-				shapeType = SideWiseType.ISOSCELES;
-			}
+		if (SideWiseType.EQUILATERAL.equals(shapeType)) {
+			// determined as equilateral by superclass: this is the most specific side-wise type for a triangle so use it
+			return shapeType;
 		}
 		
-		// return whatever was determined
-		return shapeType;
+		// not equilateral, must be either isosceles or scalene
+		Set<Double> sidesByLength = sides.stream().collect(Collectors.toSet());
+		if (sidesByLength.size() == 2) {
+			// two sides of the same length, one of another length -> isosceles
+			return SideWiseType.ISOSCELES;
+		} 
+		
+		// neither equilateral nor isosceles: it is scalene
+		return SideWiseType.SCALENE;
 	}
 
 	@Override

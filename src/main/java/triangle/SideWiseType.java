@@ -5,9 +5,10 @@ package triangle;
  */
 public enum SideWiseType {
 	
+	NONE(""),
 	EQUILATERAL("equilateral"),
 	ISOSCELES("isosceles"),		// applicable for triangle only
-	SCALENE("scalene");
+	SCALENE("scalene");			// applicable for triangle only
 	
 	private String description = null;
 	

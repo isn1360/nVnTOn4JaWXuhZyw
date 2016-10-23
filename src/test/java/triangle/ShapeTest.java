@@ -44,9 +44,9 @@ public class ShapeTest
 	}
 	
 	@Test
-	public void testScalene() throws ShapeException {
-		assertSideWiseType(SideWiseType.SCALENE, 2.0d, 3.0d, 4.0d);
-		assertSideWiseType(SideWiseType.SCALENE, 32.0d, 29.0d, 15.0d);
+	public void testNone() throws ShapeException {
+		assertSideWiseType(SideWiseType.NONE, 2.0d, 3.0d, 4.0d);
+		assertSideWiseType(SideWiseType.NONE, 32.0d, 29.0d, 15.0d);
 	}
 	
 	@Test
